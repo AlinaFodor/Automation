@@ -1,5 +1,6 @@
 package Tests;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -44,6 +45,11 @@ public class LoginTest {
 
         WebElement enterElement = driver.findElement(By.id("enterbtn"));
         enterElement.click();
+
+        WebElement eroareElement = driver.findElement(By.id("errormsg"));
+        String expectedError = "Invalid ser Name or Password";
+        String actualError = eroareElement.getText();
+        Assert.assertEquals("MESAJULE PE PAGINA NU ESTE CORECT!!",expectedError,actualError);
 
     }
 
